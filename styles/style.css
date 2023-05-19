@@ -76,7 +76,7 @@ main{
     padding: 2rem;
     border-radius: 2rem;
     /* background: url(/media/image/parcialmente-nublado.jpg); */
-    background-color: aqua;
+    /* background-color: aqua; */
     background-size: cover;
     background-position: center;
     display: flex;

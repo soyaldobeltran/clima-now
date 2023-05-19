@@ -3,6 +3,7 @@ let cityName = document.getElementById('city-name');
 let descriptionWeather = document.getElementById('weather-description');
 const weatherIcon = document.getElementById('weather-icon')
 const kelvin = 273.15;
+const colorCard = document.getElementById('card')
 window.addEventListener("load",()=> {
     if(navigator.geolocation){
 
@@ -31,6 +32,26 @@ window.addEventListener("load",()=> {
                 weatherIcon.innerHTML = `
                     <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${dataWeather.description}">
                 `;
+            
+                switch(icon){
+                    case '04d' || '04n':
+                    colorCard.setAttribute("style", "background-color:gray;");
+                    break;
+                    case '01d' || '01n':
+                    colorCard.setAttribute("style", "background-color:orange;");
+                    break;
+                    case '03d' || '03n' || '02d' || '02n':
+                    colorCard.setAttribute("style", "background-color:gray;");
+                    break;
+                    default:
+                    colorCard.setAttribute("style", "background-color:aqua;");
+                }
+                // 
+                // if (dataWeather.description = "nubes"){
+                //     colorCard.setAttribute("style", "background-color:gray;");
+                // }else{
+                //     colorCard.setAttribute("style", "background-color:aqua;");
+                // }
                 })
             })
             
