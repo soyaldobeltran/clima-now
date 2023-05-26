@@ -116,10 +116,8 @@ footer{
     height: auto;
 }
 .wallpaper_info{
-    position: absolute;
+    position: static;
     color: white;
-    right: 25px;
-    bottom: 25px;
     text-align: center;
 }
 .wallpaper_info a{
