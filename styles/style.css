@@ -13,6 +13,7 @@ body{
     background-size: cover;
     background-position: center;
     backdrop-filter: brightness(50%);
+    -webkit-backdrop-filter: brightness(50%);
     height: 100vh;
 }
 main{
