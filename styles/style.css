@@ -13,8 +13,6 @@ body{
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    backdrop-filter: brightness(50%);
-    -webkit-backdrop-filter: brightness(50%);
 }
 main{
     padding-top: 1rem;
