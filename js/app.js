@@ -41,6 +41,7 @@ window.addEventListener("load",()=> {
 
 function randomWallpaper(){
     const wallpaper = document.querySelector('.wallpaper');
+    const wallpaperInfo = document.getElementById('wallpaper_info')
     const clientID = "BHuS-hU-E3J7z8mllOf42H70rgvmUNy3-penuHpsX0A";
     let endPoint = `https://api.unsplash.com/photos/random??query=landscape&orientation=landscape&client_id=${clientID}`
     let params = {
@@ -53,6 +54,12 @@ function randomWallpaper(){
         .then((jsonData) => {
             console.log(jsonData)
             wallpaper.style.backgroundImage = `url(${jsonData.urls.regular}`; 
+            let userName = jsonData.user.first_name;
+            let userLik = jsonData.user.portfolio_url;
+            let unsplashLink = jsonData.links.html;
+            wallpaperInfo.innerHTML = `</p>Foto de <a href="${userLik}" target="_blank">${userName}</a> en <a href="${unsplashLink}" target="_blank">Unsplash</a></p>`;
+            
+
         })
         .catch(error => {
             console.log(error);
