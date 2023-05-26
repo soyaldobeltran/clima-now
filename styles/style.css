@@ -12,9 +12,9 @@ body{
     padding: 2rem;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     backdrop-filter: brightness(50%);
     -webkit-backdrop-filter: brightness(50%);
-    height: 100vh;
 }
 main{
     padding-top: 1rem;
