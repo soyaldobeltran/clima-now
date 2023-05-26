@@ -5,8 +5,9 @@ const weatherIcon = document.getElementById('weather-icon')
 const kelvin = 273.15;
 const colorCard = document.getElementById('card')
 window.addEventListener("load",()=> {
+    randomWallpaper();
     if(navigator.geolocation){
-
+        
         navigator.geolocation.getCurrentPosition((position) => {
             console.log(position);
             lon = position.coords.longitude;
@@ -32,29 +33,28 @@ window.addEventListener("load",()=> {
                 weatherIcon.innerHTML = `
                     <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${dataWeather.description}">
                 `;
-            
-                switch(icon){
-                    case '04d' || '04n':
-                    colorCard.setAttribute("style", "background-color:gray;");
-                    break;
-                    case '01d' || '01n':
-                    colorCard.setAttribute("style", "background-color:orange;");
-                    break;
-                    case '03d' || '03n' || '02d' || '02n':
-                    colorCard.setAttribute("style", "background-color:gray;");
-                    break;
-                    default:
-                    colorCard.setAttribute("style", "background-color:aqua;");
-                }
-                // 
-                // if (dataWeather.description = "nubes"){
-                //     colorCard.setAttribute("style", "background-color:gray;");
-                // }else{
-                //     colorCard.setAttribute("style", "background-color:aqua;");
-                // }
                 })
-            })
-            
+            })     
     }
 
 })
+
+function randomWallpaper(){
+    const wallpaper = document.querySelector('.wallpaper');
+    const clientID = "BHuS-hU-E3J7z8mllOf42H70rgvmUNy3-penuHpsX0A";
+    let endPoint = `https://api.unsplash.com/photos/random??query=landscape&orientation=landscape&client_id=${clientID}`
+    let params = {
+        query: "landscape",
+        orientation: "landscape"
+    };
+
+    fetch(endPoint)
+        .then((response) => response.json())
+        .then((jsonData) => {
+            console.log(jsonData)
+            wallpaper.style.backgroundImage = `url(${jsonData.urls.regular}`; 
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
