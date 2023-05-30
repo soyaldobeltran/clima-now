@@ -31,10 +31,10 @@ window.addEventListener("load",()=> {
                 descriptionWeather.textContent = dataWeather.description;
                 const icon = dataWeather.icon; 
                 weatherIcon.innerHTML = `
-                    <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${dataWeather.description}">
+                    <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${dataWeather.description}" width="100" height="auto">
                 `;
                 })
-            })     
+            })   
     }
 
 })
@@ -43,7 +43,7 @@ function randomWallpaper(){
     const wallpaper = document.querySelector('.wallpaper');
     const wallpaperInfo = document.getElementById('wallpaper_info')
     const clientID = "BHuS-hU-E3J7z8mllOf42H70rgvmUNy3-penuHpsX0A";
-    let endPoint = `https://api.unsplash.com/photos/random??query=wallpaper-nature&orientation=landscape&client_id=${clientID}`
+    let endPoint = `https://api.unsplash.com/photos/random?query=wallpaper-nature&orientation=landscape&client_id=${clientID}`
     let params = {
         query: "landscape",
         orientation: "landscape"
